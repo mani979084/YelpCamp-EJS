@@ -1,0 +1,62 @@
+<% layout('layouts/boilerplate') %>
+    <div class="row mb-5">
+        <div class="col-10 offset-1 col-md-6 offset-md-3">
+            <%- include('../partials/flashAlert') %>
+
+            <div class="card shadow">
+                <div class="card-body">
+                    <h1 class="text-center mb-4">Editing Campground</h1>
+
+                    <form action="/campground/<%=camp._id %>?_method=PUT" class="needs-validation" novalidate
+                        method="POST">
+                        <div> <label class="form-label" for="title">Enter Title</label>
+                            <input class="form-control mb-3" type="text" name="campground[title]" id="title"
+                                value="<%=camp.title%> " required>
+                            <div class="valid-feedback mb-3">
+                                Looks good!
+                            </div>
+                        </div>
+                        <div><label class="form-label" for="loc">Enter Location</label>
+                            <input class="form-control mb-3" type="text" name="campground[location]" id="loc"
+                                value="<%=camp.location%>" required>
+                            <div class="valid-feedback mb-3">
+                                Looks good!
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label" for="price">Price</label>
+                            <div class="input-group">
+
+                                <span class="input-group-text" id="basic-addon1">$</span>
+                                <input id="price" name="campground[price]" type="text" class="form-control"
+                                    placeholder="0.00" aria-label="price" aria-describedby="basic-addon1"
+                                    value="<%=camp.price%>" required>
+                                <div class="valid-feedback mt-3">
+                                    Looks good!
+                                </div>
+                            </div>
+                        </div>
+                        <label class="form-label" for="desc">Description</label>
+                        <textarea class="form-control mb-3" type="text" name="campground[description]" id="desc"
+                            required><%=camp.description %></textarea>
+                        <div class="valid-feedback mb-3">
+                            Looks good!
+                        </div>
+
+
+                        <div class="row card-body px-0">
+                            <div class="col-md-6 d-grid mb-3 mb-md-0">
+                                <a href="/campground/<%=camp._id %>/editphoto" class="card-link btn btn-info">Edit
+                                    Photos</a>
+                            </div>
+                            <div class="col-md-6 d-grid">
+                                <button class="btn btn-success ">Update Campgound</button>
+
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>

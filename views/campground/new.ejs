@@ -1,0 +1,58 @@
+<% layout('layouts/boilerplate') %>
+    <div class="row mb-5">
+        <div class="col-10 offset-1 col-md-6 offset-md-3">
+            <%- include('../partials/flashAlert') %>
+
+            <div class="card shadow">
+                <div class="card-body">
+                    <h1 class="text-center mb-4">Creating Campground</h1>
+
+                    <form action="/campground" method="POST" class="needs-validation" enctype="multipart/form-data"
+                        novalidate>
+                        <div> <label class="form-label" for="title">Enter Title</label>
+                            <input class="form-control mb-3" type="text" name="campground[title]" required id="title">
+                            <div class="valid-feedback mb-3">
+                                Looks good!
+                            </div>
+                        </div>
+                        <div> <label class="form-label" for="loc">Enter Location</label>
+                            <input class="form-control mb-3" type="text" name="campground[location]" required id="loc">
+                            <div class="valid-feedback mb-3">
+                                Looks good!
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label" for="price">Price</label>
+                            <div class="input-group">
+
+                                <span class="input-group-text" id="basic-addon1">$</span>
+                                <input id="price" name="campground[price]" type="text" class="form-control"
+                                    placeholder="0.00" aria-label="price" aria-describedby="basic-addon1" required>
+                                <div class="valid-feedback mt-3">
+                                    Looks good!
+                                </div>
+                            </div>
+                        </div>
+                        <label class="form-label" for="desc">Description</label>
+                        <textarea class="form-control mb-3" type="text" name="campground[description]" id="desc"
+                            required></textarea>
+                        <div class="valid-feedback mb-3">
+                            Looks good!
+                        </div>
+                        <div class="mb-3">
+                            <label for="formFileMultiple" class="form-label">Upload Images</label>
+                            <input class="form-control" type="file" id="formFileMultiple" name="images" multiple>
+                        </div>
+                        <div class="text-center card-body">
+                            <button class="btn btn-success w-50">Add Campgound</button>
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- <a href="/campground">Home</a> -->

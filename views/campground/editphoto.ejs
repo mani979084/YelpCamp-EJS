@@ -1,0 +1,59 @@
+<% layout('layouts/boilerplate') %>
+    <style>
+        .peopleCarouselImg {
+            width: auto;
+            height: 100px;
+            max-height: 100px;
+            display: flex;
+            align-items: center;
+        }
+    </style>
+    <div class="row mb-5">
+        <div class="col-md-6 offset-md-3">
+            <%- include('../partials/flashAlert') %>
+
+                <div class="card shadow">
+                    <div class="card-body">
+                        <h1 class="text-center mb-4">Edit Photos</h1>
+                        <form action="/campground/<%=camp._id %>/editphoto?_method=PUT" class="needs-validation"
+                            enctype="multipart/form-data" novalidate method="POST">
+                            <div class="mb-4">
+                                <label for="formFileMultiple" class="form-label">Add more images</label>
+                                <input class="form-control" type="file" id="formFileMultiple" name="images" multiple>
+                            </div>
+                            <div class="row">
+                                <% camp.images.forEach((img,i)=>{ %>
+                                    <div class="col-4 col-xl-3 mb-3 ">
+                                        <div class="
+                                         <%= img.filename === 'default' ? 'd-none' : '' %>">
+                                            <div class="carousel-inner peopleCarouselImg">
+
+                                                <img class="card-img-top" src="<%=img.thumbnail %> " alt="">
+
+
+                                            </div>
+
+                                            <div class="card-body border-bottom">
+                                                <input class="form-check-input" name="deleteImages[]" type="checkbox"
+                                                    value="<%=img.filename %>" id="image-<%=i %>">
+                                                <label class="form-check-label" for="image-<%=i %>">
+                                                    Delete?
+                                                </label>
+
+                                            </div>
+                                        </div>
+
+
+
+                                    </div>
+                                    <% }) %>
+                            </div>
+
+                            <div class="text-center card-body">
+                                <button class="btn btn-primary w-50">Update Photos</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+        </div>
+    </div>

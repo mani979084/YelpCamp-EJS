@@ -1,0 +1,7 @@
+.peopleCarouselImg  {
+    width: auto;
+    height: 400px;
+    max-height: 400px;
+    display: flex;
+    align-items: center;    
+  }
