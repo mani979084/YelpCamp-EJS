@@ -2,6 +2,7 @@ if (process.env.NODE_ENV !== 'production') {
     require('dotenv').config()
 }
 
+
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
@@ -80,6 +81,7 @@ app.use(mongoSanitize({
     replaceWith: '_'
 }))
 app.use(helmet());
+
 
 const scriptSrcUrls = [
     "https://stackpath.bootstrapcdn.com/",
